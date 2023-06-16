@@ -130,8 +130,8 @@ const validaCarrinho = (req,res,next) =>{
       if(!req.body.precoTotal){
           erros.push("precoTotal");
       }
-      if(!req.body.frete){
-          erros.push("Frete");
+      if(!req.body.precoEntrega){
+          erros.push("precoEntrega");
       }
       
       if(erros.length == 0){
