@@ -59,7 +59,7 @@ app.use("/docs", docs);
 
 app.get("/",(req,res)=> {
     res.send({
-        message:"Bem vindo ao Market Place"
+        message:"Bem vindo a Pizzaria"
     });
 })
 
