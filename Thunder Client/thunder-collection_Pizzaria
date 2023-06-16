@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
-    "collectionName": "Market Place",
-    "dateExported": "2023-06-15T17:41:07.784Z",
+    "collectionName": "Pizzaria",
+    "dateExported": "2023-06-16T00:57:09.944Z",
     "version": "1.1",
     "folders": [
         {
@@ -564,7 +564,7 @@
             "_id": "21c83a81-7060-41ab-8ca9-86f038b88ff4",
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
-            "name": "AddFavProduct",
+            "name": "AddFavPizza",
             "url": "{{BaseURL}}{{Port}}/usuario/addFavProduct/64864ea46e30fac580158dd8",
             "method": "POST",
             "sortNum": 310000,
@@ -587,7 +587,7 @@
             "_id": "3c5ca1f2-8308-44d0-93b0-f434faf49285",
             "colId": "1cc9749c-709f-49c8-8490-dcff07662eb6",
             "containerId": "2efba0be-b9dd-4630-9a4d-767ee13b4533",
-            "name": "DeleteFavProduct",
+            "name": "DeleteFavPizza",
             "url": "{{BaseURL}}{{Port}}/usuario/removeFavProduct/64864ea46e30fac580158dd7",
             "method": "DELETE",
             "sortNum": 320000,
