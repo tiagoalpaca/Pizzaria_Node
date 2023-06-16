@@ -128,7 +128,7 @@ const removeUserAdressController = async(req,res) =>{
     }
 };
 
-const addUserFavProductController = async(req,res) =>{
+const addUserFavPizzaController = async(req,res) =>{
 
     try{
         return res.status(201).send(await userService.addUserFavProductService(req.params.id,req.body));
@@ -139,7 +139,7 @@ const addUserFavProductController = async(req,res) =>{
      }    
 }
 
-const removeUserFavProductController  = async(req,res) =>{
+const removeUserFavPizzaController  = async(req,res) =>{
     try{
         return res.status(201).send(await userService.removeUserFavProductService(req.params.id,req.body));
     }catch(err){
@@ -157,6 +157,6 @@ module.exports ={
     addUserAdressController,
     removeUserController,
     removeUserAdressController,
-    addUserFavProductController,
-    removeUserFavProductController
+    addUserFavPizzaController,
+    removeUserFavPizzaController
 }

@@ -5,7 +5,6 @@ const ProdutoSchema = new mongoose.Schema({
     descricao: { type: String, required:true},
     precoUnitario: { type: Number, required:true},
     imagem:{ type: String, required:true},
-    codigoBarra:{type: Number, required:true,unique:true},
     // array de informações
     categorias:[
          {

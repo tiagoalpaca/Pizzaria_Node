@@ -26,7 +26,7 @@ router.get("/findAll",authMiddleware,paginacao, usuario.findAllUsersController);
 // Post
 router.post("/create",validaUsuario, usuario.createUserController);
 router.post("/addAddress/:id", authMiddleware,validaIdParams,validaEndereco,usuario.addUserAdressController);
-router.post("/addFavProduct/:id",authMiddleware,validaIdParams,valida_IdBody, usuario.addUserFavProductController);
+router.post("/addFavPizza/:id",authMiddleware,validaIdParams,valida_IdBody, usuario.addUserFavPizzaController);
 
 // Put
 // primeira validamos o token, dps o usuario
@@ -35,7 +35,7 @@ router.put("/update/:id", authMiddleware,validaIdParams,validaUsuario,usuario.up
 // Delete
 router.delete("/remove/:id", authMiddleware,validaIdParams,usuario.removeUserController);
 router.delete("/removeAddress",authMiddleware, usuario.removeUserAdressController);
-router.delete("/removeFavProduct/:id", authMiddleware,validaIdParams,usuario.removeUserFavProductController);
+router.delete("/removeFavPizza/:id", authMiddleware,validaIdParams,usuario.removeUserFavPizzaController);
 
 // para exportar os routers
 module.exports = router;

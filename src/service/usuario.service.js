@@ -54,7 +54,7 @@ const removeUserAddressService = (id,addressId) => {
     }
     );
 }
-const addUserFavProductService = (id,produto) => {
+const addUserFavPizzaService = (id,produto) => {
     return Usuario.findOneAndUpdate(
         {
             _id:id,
@@ -71,7 +71,7 @@ const addUserFavProductService = (id,produto) => {
         }
     )
 }
-const removeUserFavProductService = (id,produto) => {
+const removeUserFavPizzatService = (id,produto) => {
     return Usuario.findOneAndUpdate(
         {
             _id:id,
@@ -97,7 +97,7 @@ module.exports = {
     removeUserService,
     addUserAddressService,
     removeUserAddressService,
-    addUserFavProductService,
-    removeUserFavProductService
+    addUserFavPizzaService,
+    removeUserFavPizzatService
 
 }

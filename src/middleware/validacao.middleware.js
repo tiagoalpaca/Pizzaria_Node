@@ -70,9 +70,6 @@ const validaProduto = (req,res,next) =>{
     if(!req.body.imagem){
         erros.push("imagem");
     }
-    if(!req.body.codigoBarra){
-        erros.push("codigoBarra");
-    }
 
     if(erros.length == 0){
          // precisa ter o return next,senao ele fica flutuando e nao faz nada
@@ -103,8 +100,8 @@ const validaPedido = (req,res,next) =>{
     if(!req.body.precoTotal){
         erros.push("precoTotal");
     }
-    if(!req.body.frete){
-        erros.push("Frete");
+    if(!req.body.precoEntrega){
+        erros.push("precoEntrega");
     }
     // validação é diferente,pois se trata de um booleano
     if(req.body.concluido == undefined){
@@ -202,7 +199,6 @@ const validaProdutosCarrinhoPedido = (req,res,next) =>{
         }
     });
 
-   
     if(erros.length == 0){
          // precisa ter o return next,senao ele fica flutuando e nao faz nada
      return next();

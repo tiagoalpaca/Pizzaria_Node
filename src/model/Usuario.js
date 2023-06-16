@@ -21,7 +21,7 @@ const UsuarioSchema = new mongoose.Schema({
             createdAt:{ type:Date, required:true,default: Date.now()},
         }
     ],
-    produtos_fav:[
+    pizza_fav:[
      {
          _id:{ type: mongoose.Schema.Types.ObjectId, unique: true, ref: "produtos"},
          createdAt:{ type:Date, required:true,default: Date.now()},
