@@ -1,18 +1,17 @@
 const userService = require("../service/usuario.service");
 const mongoose = require("mongoose");
 
-
 // cria a função para procurar um usuario especifico
 const findUserByIdController = async (req,res)=>{
      // toda interação com o BD é bom usar o try,catch para melhorar tudo, para tentar conter danos. Toda interação é bom utilizar.
 
    try{
         const user = await userService.findUserbyIdService(req.params.id);
-        
+
         if(!user){
             return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
         }
-
+        
         return res.status(200).send(user);
         
     }catch(err){
@@ -41,7 +40,7 @@ const findAllUsersController = async (req,res)=>{
 // cria a função de criar um usuario
 const createUserController = async (req,res) => {
     try{
-        return res.status(201).send(await userService.createUserService(body));
+        return res.status(201).send(await userService.createUserService(req.body));
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
     console.log('erro: '+err);
@@ -52,12 +51,14 @@ const createUserController = async (req,res) => {
 // função para fazer o update
 const updateUserController  = async (req,res) =>{
     try{
-        const body = req.body;
-        if(!body.nome){
-            return res.status(400).send({message:"O campo 'nome' nao foi encontrado"});
-        }
-        return res.status(201).send(await userService.updateUserService(req.params.id,body));
+        const user = await userService.updateUserService(req.params.id,req.body);
 
+        if(!user){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        
+        return res.status(200).send(user);
+        
     }catch(err){
     // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
     console.log('erro: '+err);
@@ -131,7 +132,7 @@ const removeUserAdressController = async(req,res) =>{
 const addUserFavPizzaController = async(req,res) =>{
 
     try{
-        return res.status(201).send(await userService.addUserFavProductService(req.params.id,req.body));
+        return res.status(201).send(await userService.addUserFavPizzaService(req.params.id,req.body));
     }catch(err){
  
      console.log('erro: '+err);
@@ -141,7 +142,7 @@ const addUserFavPizzaController = async(req,res) =>{
 
 const removeUserFavPizzaController  = async(req,res) =>{
     try{
-        return res.status(201).send(await userService.removeUserFavProductService(req.params.id,req.body));
+        return res.status(200).send(await userService.removeUserFavPizzaService(req.params.id,req.body));
     }catch(err){
  
      console.log('erro: '+err);

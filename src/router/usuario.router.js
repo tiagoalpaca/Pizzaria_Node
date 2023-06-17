@@ -2,8 +2,6 @@
 // const router = require("express").Router(); 
 const express = require("express");
 const router = express.Router();
-// importa o controler do usuario
-const UsuarioController = require("../controller/usuario.controller");
 
 // importar o middleware para fazer as verificações
 const authMiddleware = require ("../middleware/auth.middleware");
@@ -21,7 +19,7 @@ const usuario = require("../controller/usuario.controller");
 // Caso não se insira o middleware, a pessoa não precisa do token para fazer a pesquisa
 // Get
 router.get("/findById/:id",authMiddleware,validaIdParams,usuario.findUserByIdController); 
-router.get("/findAll",authMiddleware,paginacao, usuario.findAllUsersController);
+router.get("/findAll",authMiddleware,paginacao,usuario.findAllUsersController);
 
 // Post
 router.post("/create",validaUsuario, usuario.createUserController);

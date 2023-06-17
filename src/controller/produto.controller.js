@@ -3,7 +3,14 @@ const mongoose = require("mongoose");
 
 const findProductByIdController = async (req,res)=>{
     try{
-        return res.status(200).send(await produtoService.findProductByIdService(req.params.id));
+
+        const produto = await produtoService.findProductByIdService(req.params.id);
+
+        if(!produto){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(produto);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -37,7 +44,12 @@ const createProductController = async (req,res) => {
 
 const updateProductController  = async (req,res) =>{
     try{
-        return res.status(200).send(await produtoService.updateProductService(req.params.id,req.body));
+        const produto = await produtoService.updateProductService(req.params.id,req.body);
+
+        if(!produto){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(produto);
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -47,7 +59,12 @@ const updateProductController  = async (req,res) =>{
 
 const removeProductController = async (req,res) =>{
     try{
-        return res.status(200).send(await produtoService.removeProductService(req.params.id));
+        const produto = await produtoService.removeProductService(req.params.id);
+
+        if(!produto){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(produto);
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -57,7 +74,7 @@ const removeProductController = async (req,res) =>{
 
 const addCategoriaProdutoController = async (req,res) =>{
     try{
-        res.status(200).send(await produtoService.addCategoriaProdutoService(req.params.id, req.body));
+        return res.status(201).send(await produtoService.addCategoriaProdutoService(req.params.id, req.body));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -67,7 +84,7 @@ const addCategoriaProdutoController = async (req,res) =>{
 
 const removeCategoriaProdutoController = async (req,res) =>{
     try{
-        res.status(200).send(await produtoService.removeCategoriaProdutoService(req.params.id,req.body));
+         return res.status(200).send(await produtoService.removeCategoriaProdutoService(req.params.id,req.body));
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagesm do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);

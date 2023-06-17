@@ -3,7 +3,14 @@ const mongoose = require("mongoose");
 
 const findPedidoByIdController = async (req,res)=>{
     try{
-        return res.status(200).send(await PedidoService.findPedidoByIdService(req.params.id));
+
+        const pedido = await PedidoService.findPedidoByIdService(req.params.id);
+
+        if(!pedido){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(pedido);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -37,7 +44,14 @@ const createPedidoController = async (req,res) => {
 
 const removePedidoController = async (req,res) =>{
     try{
-        return res.status(200).send(await PedidoService.removePedidoService(req.params.id));
+        
+        const pedido = await PedidoService.removePedidoService(req.params.id);
+
+        if(!pedido){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(pedido);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -47,7 +61,13 @@ const removePedidoController = async (req,res) =>{
 
 const updateStatusPedidoController  = async (req,res) =>{
     try{
-        return res.status(200).send(await PedidoService.updateStatusPedidoService(req.params.id));
+        const pedido = await PedidoService.updateStatusPedidoService(req.params.id);
+
+        if(!pedido){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(pedido);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);

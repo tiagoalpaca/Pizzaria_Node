@@ -3,7 +3,14 @@ const mongoose = require("mongoose");
 
 const findCarrinhoByIdController = async (req,res)=>{
     try{
-        return res.status(200).send(await carrinhoService.findCarrinhoByIdService(req.params.id));
+
+        const carrinho = await carrinhoService.findCarrinhoByIdService(req.params.id);
+
+        if(!carrinho){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(carrinho);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -37,7 +44,13 @@ const createCarrinhoController = async (req,res) => {
 
 const updateCarrinhoController  = async (req,res) =>{
     try{
-        return res.status(200).send(await carrinhoService.updateCarrinhoService(req.params.id,req.body));
+        const carrinho = await carrinhoService.updateCarrinhoService(req.params.id,req.body);
+
+        if(!carrinho){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(carrinho);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);
@@ -47,7 +60,13 @@ const updateCarrinhoController  = async (req,res) =>{
 
 const removeCarrinhoController = async (req,res) =>{
     try{
-        return res.status(200).send(await carrinhoService.removeCarrinhoService(req.params.id));
+        const carrinho = await carrinhoService.removeCarrinhoService(req.params.id);
+
+        if(!carrinho){
+            return res.status(404).send({message:"Não foi encontrado,tente outro ID"});
+        }
+        return res.status(200).send(carrinho);
+
     }catch(err){
         // console.log é interno, entao vc saberia do codigo do erro. Nunca é bom dar mensagem do codigo do erro para pessoas de fora do sistema
         console.log('erro: '+err);

@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.0",
     "info":{
-        "title": "API Market Place",
-        "description": "API de Market Place completa contendo o CRUD de diversos assuntos",
+        "title": "API da Pizzaria",
+        "description": "API da Pizzaria completa contendo o CRUD de diversos assuntos",
         "contact":{
             "name": "Tiago",
             "email": "tiagoalpaca@gmail.com"
@@ -13,11 +13,7 @@
         {
             "url": "http://localhost:3000",
             "description": "API de teste Local"
-        },
-        {
-            "url": "Market na nuvem",
-            "description": "API de teste Local"
-        }    
+        }  
     ],
     "paths":{
         "/usuario/FindAll":{
@@ -609,15 +605,15 @@
                 }
             }
         },
-        "/usuario/addFavProduct/{id}":{
+        "/usuario/addFavPizza/{id}":{
             "post":{
                 "security":[
                     {
                         "bearerAuth":[]
                     }
                 ],
-                "summary":"Adiciona produtos favoritos em um usuario que corresponde com o ID informado",
-                "description":"Rota responsavel por Adiciona produtos favoritos em um usuario da API que corresponde com o ID informado",
+                "summary":"Adiciona pizzas favoritas em um usuario que corresponde com o ID informado",
+                "description":"Rota responsavel por adicionar pizzas favoritas em um usuario da API que corresponde com o ID informado",
                 "tags":["Usuario"],
                 "parameters":[
                     {
@@ -635,7 +631,7 @@
                             "application/json":{
                                 "schema":{
                                     "type":"object",
-                                     "$ref":"#/components/schemas/ProductFav"
+                                     "$ref":"#/components/schemas/PizzaFav"
                                 }
                             }
                         },
@@ -643,7 +639,7 @@
                     },
                 "responses":{
                     "201":{
-                        "description":"retorna um usuario com seu novo produto favorito",
+                        "description":"retorna um usuario com sua pizza favorita adicionada",
                         "content":{
                             "application/json":{
                                 "schema":{
@@ -704,15 +700,15 @@
                 }
             }
         },
-        "/usuario/removeFavProduct/{id}":{
+        "/usuario/removeFavPizza/{id}":{
             "delete":{
                 "security":[
                     {
                         "bearerAuth":[]
                     }
                 ],
-                "summary":"Deleta um produto favorito do usuario que corresponde com o ID informado",
-                "description":"Rota responsavel por deletar um produto favorito do usuario da API que corresponde com o ID informado",
+                "summary":"Deleta uma pizza favorita do usuario que corresponde com o ID informado",
+                "description":"Rota responsavel por deletar uma pizzaa favorita do usuario da API que corresponde com o ID informado",
                 "tags":["Usuario"],
                 "parameters":[
                     {
@@ -742,7 +738,7 @@
                     },
                 "responses":{
                     "200":{
-                        "description":"retorna um usuario com seu produto favorito removido",
+                        "description":"retorna um usuario com sua pizza favorita removida",
                         "content":{
                             "application/json":{
                                 "schema":{
@@ -851,7 +847,7 @@
                             }
                         }
                     },
-                    "produtos_fav":{
+                    "pizza_fav":{
                         "type": "array",
                         "items":{
                             "properties":{
@@ -894,7 +890,7 @@
                 }
             }
         },
-        "ProductFav":{
+        "PizzaFav":{
             "type": "array",
                         "items":{
                             "properties":{

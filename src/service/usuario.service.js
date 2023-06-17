@@ -61,7 +61,7 @@ const addUserFavPizzaService = (id,produto) => {
         },
         {
             $push:{
-                produtos_fav:{
+                pizza_fav:{
                     _id:produto._id,
                 }
             }
@@ -71,14 +71,14 @@ const addUserFavPizzaService = (id,produto) => {
         }
     )
 }
-const removeUserFavPizzatService = (id,produto) => {
+const removeUserFavPizzaService = (id,produto) => {
     return Usuario.findOneAndUpdate(
         {
             _id:id,
         },
         {
             $pull:{
-                produtos_fav:{
+                pizza_fav:{
                     _id:produto._id,
                 }
             }
@@ -98,6 +98,6 @@ module.exports = {
     addUserAddressService,
     removeUserAddressService,
     addUserFavPizzaService,
-    removeUserFavPizzatService
+    removeUserFavPizzaService
 
 }
