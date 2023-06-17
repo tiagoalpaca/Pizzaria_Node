@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "environmentName": "Pizzaria",
-    "dateExported": "2023-06-16T00:57:33.782Z",
+    "dateExported": "2023-06-17T00:21:42.905Z",
     "version": "1.0",
     "variables": [
         {
@@ -14,7 +14,7 @@
         },
         {
             "name": "token",
-            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODY0ZWQwNmUzMGZhYzU4MDE1OGRkOSIsImlhdCI6MTY4Njg0MDE2OX0.cUd_RMynUVAKD9LuGvWKCL4hFVaGieX-31GlYpZwBlM"
+            "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0OGNkMTc5MTk4MmRmYjUwOWM2NGI0MyIsImlhdCI6MTY4Njk1MDMyNH0.UVU4ZtyglXXDmw66qmtsvNur6Z9HnEfu6ADiKbxwi10"
         }
     ]
 }

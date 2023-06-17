@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,carrinhoController.findCarr
 router.get("/findAll",authMiddleware,paginacao,carrinhoController.findAllCarrinhosController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaProdutosCarrinhoPedido,validaCarrinho,carrinhoController.createCarrinhoController);
+router.post("/create",validaProdutosCarrinhoPedido,validaCarrinho,carrinhoController.createCarrinhoController);
 
 // Metodo Put
 router.put("/update/:id",authMiddleware,validaIdParams,validaCarrinho,carrinhoController.updateCarrinhoController);

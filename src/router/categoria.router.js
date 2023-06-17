@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,categoriaController.findCat
 router.get("/findAll",authMiddleware,paginacao,categoriaController.findAllCategoriasController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaCategoria,categoriaController.createCategoriaController);
+router.post("/create",validaCategoria,categoriaController.createCategoriaController);
 
 // Metodo Put
 router.put("/update/:id",authMiddleware,validaIdParams,validaCategoria,categoriaController.updateCategoriaController);

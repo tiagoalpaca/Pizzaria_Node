@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,produtoController.findProdu
 router.get("/findAll",authMiddleware,paginacao,produtoController.findAllProductsController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaProduto,produtoController.createProductController);
+router.post("/create",validaProduto,produtoController.createProductController);
 router.post("/addCategoria/:id",authMiddleware,validaIdParams,valida_IdBody,produtoController.addCategoriaProdutoController);
 
 // Metodo Put

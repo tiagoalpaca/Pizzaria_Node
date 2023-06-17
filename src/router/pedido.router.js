@@ -16,7 +16,7 @@ router.get("/find/:id",authMiddleware,validaIdParams,pedidoController.findPedido
 router.get("/findAll",authMiddleware,paginacao,pedidoController.findAllPedidosController);
 
 // metodo Post
-router.post("/create",authMiddleware,validaProdutosCarrinhoPedido,validaPedido,pedidoController.createPedidoController);
+router.post("/create",validaProdutosCarrinhoPedido,validaPedido,pedidoController.createPedidoController);
 
 // Metodo Patch so atualiza uma parte do objeto, o put atualiza o objeto inteiro
 router.patch("/updateStatus/:id",authMiddleware,validaIdParams,pedidoController.updateStatusPedidoController);
